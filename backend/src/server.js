@@ -150,7 +150,8 @@ try {
   console.error('❌ Failed to load circuit plants routes:', err);
 }
 
-app.use('/api/test', require('./routes/test-pdf'));
+// Test PDF route (disabled in production)
+// app.use('/api/test', require('./routes/test-pdf'));
 
 // Health check
 app.get('/api/health', (req, res) => {
