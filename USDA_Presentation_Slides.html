@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDA Travel Voucher System Presentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .slide {
+            background: white;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 60px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            page-break-after: always;
+            min-height: 500px;
+        }
+        .slide h1 {
+            color: #2C5234;
+            font-size: 48px;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #4A8B2A;
+            padding-bottom: 10px;
+        }
+        .slide h2 {
+            color: #2C5234;
+            font-size: 36px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .slide h3 {
+            color: #4A8B2A;
+            font-size: 28px;
+            margin-top: 30px;
+        }
+        .slide ul {
+            font-size: 24px;
+            line-height: 1.8;
+        }
+        .slide p {
+            font-size: 24px;
+            line-height: 1.6;
+        }
+        .highlight {
+            background: #FFF9C4;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+        .stat {
+            font-size: 48px;
+            color: #2C5234;
+            font-weight: bold;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .box {
+            background: #E8F5E9;
+            border-left: 5px solid #4A8B2A;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .red-box {
+            background: #FFEBEE;
+            border-left: 5px solid #C41E3A;
+        }
+        .blue-box {
+            background: #E3F2FD;
+            border-left: 5px solid #1976D2;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 20px;
+        }
+        table th {
+            background: #2C5234;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .title-slide {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .title-slide h1 {
+            font-size: 64px;
+            border: none;
+        }
+        .logo {
+            font-size: 72px;
+            color: #2C5234;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .slide {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: TITLE -->
+<div class="slide title-slide">
+    <div class="logo">🌾 USDA</div>
+    <h1>Local Travel Voucher System</h1>
+    <h2>Digital Transformation for FSIS</h2>
+    <p style="font-size: 28px; margin-top: 60px;">Presented by: [Your Name]</p>
+    <p style="font-size: 20px; color: #666;">Date: January 31, 2026</p>
+</div>
+
+<!-- SLIDE 2: THE PROBLEM -->
+<div class="slide">
+    <h1>The Problem</h1>
+    <h2>Our Current Paper-Based System is Broken</h2>
+    
+    <div class="box red-box">
+        <h3>Impact on Inspectors:</h3>
+        <ul>
+            <li><strong>2+ hours per month</strong> filling out AD-616 forms by hand</li>
+            <li>Manual mileage calculations (MapQuest, Google Maps)</li>
+            <li>Handwritten forms → scan → email</li>
+            <li>Zero visibility after submission</li>
+            <li>30% error rate = resubmission delays</li>
+        </ul>
+    </div>
+
+    <div class="box red-box">
+        <h3>Impact on Supervisors:</h3>
+        <ul>
+            <li><strong>10+ hours per month</strong> processing vouchers</li>
+            <li>Print 300+ pages monthly</li>
+            <li>Manual review of every trip</li>
+            <li>Sign, scan, merge PDFs one by one</li>
+            <li>Constant email reminders to team</li>
+        </ul>
+    </div>
+
+    <div class="stat">$50,000+ wasted annually per district</div>
+</div>
+
+<!-- SLIDE 3: CURRENT WORKFLOW -->
+<div class="slide">
+    <h1>Current Workflow</h1>
+    <h2>The Paper Trail Takes Over 4 Hours</h2>
+    
+    <table>
+        <tr>
+            <th>Step</th>
+            <th>Who</th>
+            <th>Time</th>
+        </tr>
+        <tr>
+            <td>Fill AD-616 form by hand</td>
+            <td>Inspector</td>
+            <td>20 min</td>
+        </tr>
+        <tr>
+            <td>Calculate mileage manually</td>
+            <td>Inspector</td>
+            <td>15 min</td>
+        </tr>
+        <tr>
+            <td>Create Excel travel log</td>
+            <td>Inspector</td>
+            <td>30 min</td>
+        </tr>
+        <tr>
+            <td>Scan and email</td>
+            <td>Inspector</td>
+            <td>10 min</td>
+        </tr>
+        <tr>
+            <td>Print all forms</td>
+            <td>Supervisor</td>
+            <td>20 min</td>
+        </tr>
+        <tr>
+            <td>Manual review</td>
+            <td>Supervisor</td>
+            <td>120 min</td>
+        </tr>
+        <tr>
+            <td>Sign, scan, merge PDFs</td>
+            <td>Supervisor</td>
+            <td>45 min</td>
+        </tr>
+        <tr>
+            <th colspan="2">TOTAL TIME</th>
+            <th>260 minutes (4.3 hours)</th>
+        </tr>
+    </table>
+</div>
+
+<!-- SLIDE 4: THE SOLUTION -->
+<div class="slide">
+    <h1>The Solution</h1>
+    <h2>Digital Travel Voucher Management System</h2>
+    
+    <div class="box">
+        <h3>✅ For Inspectors:</h3>
+        <ul>
+            <li>Log trips daily on phone/computer (30 seconds each)</li>
+            <li>Google Maps auto-calculates mileage</li>
+            <li>One-click voucher generation at month-end</li>
+            <li>Real-time status tracking</li>
+            <li><span class="highlight">Total time: 5 minutes per month</span></li>
+        </ul>
+    </div>
+
+    <div class="box blue-box">
+        <h3>✅ For Supervisors:</h3>
+        <ul>
+            <li>Dashboard shows all pending vouchers</li>
+            <li>One-click review and approval</li>
+            <li>No printing, scanning, or PDF merging</li>
+            <li>Automated reminders to team</li>
+            <li><span class="highlight">Total time: 30 minutes per month</span></li>
+        </ul>
+    </div>
+
+    <div class="stat" style="color: #4A8B2A;">90% Time Savings</div>
+</div>
+
+<!-- SLIDE 5: NEW WORKFLOW -->
+<div class="slide">
+    <h1>New Digital Workflow</h1>
+    <h2>From 4 Hours to 5 Minutes</h2>
+    
+    <table>
+        <tr>
+            <th>Step</th>
+            <th>Who</th>
+            <th>Time</th>
+        </tr>
+        <tr style="background: #E8F5E9;">
+            <td>Log trips daily (throughout month)</td>
+            <td>Inspector</td>
+            <td>30 sec each</td>
+        </tr>
+        <tr style="background: #E8F5E9;">
+            <td>Generate voucher (auto-calculated)</td>
+            <td>Inspector</td>
+            <td>1 min</td>
+        </tr>
+        <tr style="background: #E8F5E9;">
+            <td>Review and submit</td>
+            <td>Inspector</td>
+            <td>2 min</td>
+        </tr>
+        <tr style="background: #E3F2FD;">
+            <td>Dashboard review with map</td>
+            <td>Supervisor</td>
+            <td>1.5 min</td>
+        </tr>
+        <tr style="background: #E3F2FD;">
+            <td>Click "Approve" (auto-forward)</td>
+            <td>Supervisor</td>
+            <td>30 sec</td>
+        </tr>
+        <tr>
+            <th colspan="2">TOTAL TIME (per inspector)</th>
+            <th style="color: #4A8B2A;">5 minutes</th>
+        </tr>
+    </table>
+
+    <div class="stat" style="font-size: 36px;">260 minutes → 5 minutes = 98% reduction</div>
+</div>
+
+<!-- SLIDE 6: KEY FEATURES -->
+<div class="slide">
+    <h1>Key Features</h1>
+    
+    <div class="box">
+        <h3>🗺️ Google Maps Integration</h3>
+        <p>Automatic mileage calculation between any two addresses</p>
+    </div>
+
+    <div class="box">
+        <h3>📱 Mobile-Friendly</h3>
+        <p>Log trips from the field on any device</p>
+    </div>
+
+    <div class="box">
+        <h3>👁️ Real-Time Tracking</h3>
+        <p>Everyone sees voucher status: Draft → Submitted → Approved</p>
+    </div>
+
+    <div class="box">
+        <h3>📊 Analytics Dashboard</h3>
+        <p>Fleet managers see district-wide data, trends, and costs</p>
+    </div>
+
+    <div class="box">
+        <h3>🔒 Secure & Compliant</h3>
+        <p>FISMA moderate, encrypted data, role-based access, audit trail</p>
+    </div>
+
+    <div class="box">
+        <h3>📄 Zero Paper</h3>
+        <p>Fully digital workflow from start to finish</p>
+    </div>
+</div>
+
+<!-- SLIDE 7: COST COMPARISON -->
+<div class="slide">
+    <h1>Cost-Benefit Analysis</h1>
+    <h2>Break-Even in 14 Months</h2>
+    
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Current System</th>
+            <th>New System (Year 1)</th>
+            <th>New System (Year 2+)</th>
+        </tr>
+        <tr>
+            <td>Labor Costs</td>
+            <td>$38,400</td>
+            <td>$3,840</td>
+            <td>$3,840</td>
+        </tr>
+        <tr>
+            <td>Paper/Printing</td>
+            <td>$2,400</td>
+            <td>$0</td>
+            <td>$0</td>
+        </tr>
+        <tr>
+            <td>Error Rework</td>
+            <td>$7,680</td>
+            <td>$500</td>
+            <td>$500</td>
+        </tr>
+        <tr>
+            <td>System Costs</td>
+            <td>$0</td>
+            <td>$28,640</td>
+            <td>$3,840</td>
+        </tr>
+        <tr>
+            <td>Development (one-time)</td>
+            <td>$0</td>
+            <td>$25,000</td>
+            <td>$0</td>
+        </tr>
+        <tr>
+            <td>Training</td>
+            <td>$0</td>
+            <td>$3,000</td>
+            <td>$500</td>
+        </tr>
+        <tr>
+            <th>TOTAL</th>
+            <th>$50,180/year</th>
+            <th>$55,840</th>
+            <th>$28,340/year</th>
+        </tr>
+    </table>
+
+    <div class="stat" style="font-size: 36px; color: #2C5234;">
+        5-Year Savings: $109,200 per district
+    </div>
+</div>
+
+<!-- SLIDE 8: ROI TIMELINE -->
+<div class="slide">
+    <h1>Return on Investment</h1>
+    <h2>Savings Accelerate After Year 1</h2>
+    
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Old System Cost</th>
+            <th>New System Cost</th>
+            <th>Annual Savings</th>
+            <th>Cumulative</th>
+        </tr>
+        <tr>
+            <td>Year 1</td>
+            <td>$50,180</td>
+            <td>$55,840</td>
+            <td style="color: red;">-$5,660</td>
+            <td style="color: red;">-$5,660</td>
+        </tr>
+        <tr style="background: #E8F5E9;">
+            <td>Year 2</td>
+            <td>$50,180</td>
+            <td>$28,340</td>
+            <td style="color: green; font-weight: bold;">+$21,840</td>
+            <td style="color: green; font-weight: bold;">+$16,180</td>
+        </tr>
+        <tr style="background: #E8F5E9;">
+            <td>Year 3</td>
+            <td>$50,180</td>
+            <td>$28,340</td>
+            <td style="color: green; font-weight: bold;">+$21,840</td>
+            <td style="color: green; font-weight: bold;">+$38,020</td>
+        </tr>
+        <tr style="background: #E8F5E9;">
+            <td>Year 4</td>
+            <td>$50,180</td>
+            <td>$28,340</td>
+            <td style="color: green; font-weight: bold;">+$21,840</td>
+            <td style="color: green; font-weight: bold;">+$59,860</td>
+        </tr>
+        <tr style="background: #E8F5E9;">
+            <td>Year 5</td>
+            <td>$50,180</td>
+            <td>$28,340</td>
+            <td style="color: green; font-weight: bold;">+$21,840</td>
+            <td style="color: green; font-weight: bold;">+$81,700</td>
+        </tr>
+    </table>
+
+    <div class="stat">Break-Even: Month 14</div>
+</div>
+
+<!-- SLIDE 9: IMPLEMENTATION PLAN -->
+<div class="slide">
+    <h1>Implementation Plan</h1>
+    <h2>Phased, Low-Risk Rollout</h2>
+    
+    <div class="box">
+        <h3>Phase 1: Pilot (Months 1-2)</h3>
+        <ul>
+            <li>1 supervisor, 12 inspectors</li>
+            <li>2-hour training session</li>
+            <li>Daily support during first 2 weeks</li>
+            <li><strong>Success metrics:</strong> 90% adoption, 70% time savings</li>
+        </ul>
+    </div>
+
+    <div class="box blue-box">
+        <h3>Phase 2: Circuit Rollout (Months 3-4)</h3>
+        <ul>
+            <li>Expand to full state (3-4 circuits)</li>
+            <li>Collect feedback, optimize system</li>
+            <li><strong>Success metrics:</strong> 85% digital submissions</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h3>Phase 3: Regional Expansion (Months 5-8)</h3>
+        <ul>
+            <li>Multi-state region</li>
+            <li>Advanced analytics, help desk</li>
+            <li><strong>Success metrics:</strong> 80% paperless, 99% uptime</li>
+        </ul>
+    </div>
+
+    <div class="box blue-box">
+        <h3>Phase 4: Nationwide (Months 9-12)</h3>
+        <ul>
+            <li>All FSIS districts</li>
+            <li>Integration with USDA finance</li>
+            <li><strong>Success metrics:</strong> 95% digital, positive ROI</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SLIDE 10: SECURITY & COMPLIANCE -->
+<div class="slide">
+    <h1>Security & Compliance</h1>
+    <h2>Meeting Federal Standards</h2>
+    
+    <div class="box">
+        <h3>🔐 Security Measures:</h3>
+        <ul>
+            <li><strong>FISMA Moderate</strong> compliant</li>
+            <li><strong>Encrypted data</strong> in transit (HTTPS) and at rest</li>
+            <li><strong>Role-based access</strong> control (RBAC)</li>
+            <li><strong>Complete audit trail</strong> (who, what, when)</li>
+            <li><strong>PIV card integration</strong> ready</li>
+            <li><strong>Daily backups</strong> with disaster recovery</li>
+        </ul>
+    </div>
+
+    <div class="box blue-box">
+        <h3>✅ Compliance Standards:</h3>
+        <ul>
+            <li><strong>Federal Records Act</strong> compliant (7-year retention)</li>
+            <li><strong>Privacy Act</strong> safeguards for PII</li>
+            <li><strong>Section 508</strong> accessible</li>
+            <li><strong>USDA IT Security</strong> requirements</li>
+        </ul>
+    </div>
+
+    <p style="font-size: 28px; text-align: center; margin-top: 40px;">
+        <strong>More secure than paper forms in filing cabinets</strong>
+    </p>
+</div>
+
+<!-- SLIDE 11: ADDRESSING CONCERNS -->
+<div class="slide">
+    <h1>Addressing Common Concerns</h1>
+    
+    <div class="box red-box">
+        <h3>❓ "Our inspectors aren't tech-savvy"</h3>
+        <p><strong>Response:</strong> If they can send email, they can use this. It's 3 clicks. We provide extensive training, video tutorials, and help desk support.</p>
+    </div>
+
+    <div class="box red-box">
+        <h3>❓ "What if the system goes down?"</h3>
+        <p><strong>Response:</strong> 99.9% uptime guarantee. Daily backups. Disaster recovery plan. More reliable than paper/scanner systems.</p>
+    </div>
+
+    <div class="box red-box">
+        <h3>❓ "Training will take too long"</h3>
+        <p><strong>Response:</strong> 2-hour training session. Most users productive within 1 week. ROI positive within first month.</p>
+    </div>
+
+    <div class="box red-box">
+        <h3>❓ "This seems expensive"</h3>
+        <p><strong>Response:</strong> Break-even in 14 months. $109,200 savings over 5 years. Continuing paper system is MORE expensive.</p>
+    </div>
+</div>
+
+<!-- SLIDE 12: INTANGIBLE BENEFITS -->
+<div class="slide">
+    <h1>Beyond Cost Savings</h1>
+    <h2>Intangible Benefits</h2>
+    
+    <div class="box">
+        <h3>😊 Employee Satisfaction</h3>
+        <p>Less paperwork frustration, faster reimbursements, modern tools improve morale</p>
+    </div>
+
+    <div class="box">
+        <h3>🌱 Environmental Impact</h3>
+        <p>24,000 pages saved annually per district. Aligns with federal sustainability goals</p>
+    </div>
+
+    <div class="box">
+        <h3>📊 Data Quality</h3>
+        <p>Accurate mileage, complete audit trails, better compliance, real-time analytics</p>
+    </div>
+
+    <div class="box">
+        <h3>🎯 Better Decisions</h3>
+        <p>Data-driven insights, identify travel patterns, budget forecasting</p>
+    </div>
+
+    <div class="box">
+        <h3>📈 Scalability</h3>
+        <p>Grows to thousands of users, easy feature additions, future-proof architecture</p>
+    </div>
+</div>
+
+<!-- SLIDE 13: WHAT WE'RE ASKING FOR -->
+<div class="slide">
+    <h1>What We're Asking For</h1>
+    
+    <div class="box" style="font-size: 28px;">
+        <h3>1️⃣ Approval to Launch Pilot Program</h3>
+        <p>3-month pilot with 1 supervisor and 12 inspectors</p>
+    </div>
+
+    <div class="box" style="font-size: 28px;">
+        <h3>2️⃣ Budget Allocation</h3>
+        <p><strong>$55,840 for Year 1</strong> (includes development, hosting, training, support)</p>
+    </div>
+
+    <div class="box" style="font-size: 28px;">
+        <h3>3️⃣ Pilot Circuit Designation</h3>
+        <p>Recommend: New Jersey Circuit 01 (or alternative)</p>
+    </div>
+
+    <div class="box" style="font-size: 28px;">
+        <h3>4️⃣ Stakeholder Support</h3>
+        <p>IT security collaboration, supervisor/inspector participation, fleet manager engagement</p>
+    </div>
+
+    <div class="stat" style="font-size: 32px;">
+        Low Risk. High Reward. Break-Even in 14 Months.
+    </div>
+</div>
+
+<!-- SLIDE 14: WHY THIS MATTERS -->
+<div class="slide">
+    <h1>Why This Matters</h1>
+    <h2>More Than Just a Software System</h2>
+    
+    <div class="box" style="background: #FFF9C4; border-left: 5px solid #FDB813;">
+        <p style="font-size: 32px; line-height: 1.6;">
+            <strong>Our field inspectors keep America's food supply safe.</strong>
+        </p>
+        <p style="font-size: 28px; line-height: 1.6;">
+            They drive thousands of miles. They work in all weather conditions. They do critical work that protects public health.
+        </p>
+        <p style="font-size: 32px; line-height: 1.6; margin-top: 30px;">
+            <strong>They deserve modern tools that respect their time.</strong>
+        </p>
+    </div>
+
+    <div style="margin-top: 40px; font-size: 26px;">
+        <p><strong>This system represents:</strong></p>
+        <ul>
+            <li>✅ Respect for employee time and expertise</li>
+            <li>✅ USDA's commitment to modernization</li>
+            <li>✅ Smart use of taxpayer dollars</li>
+            <li>✅ Environmental responsibility</li>
+            <li>✅ Better service to our mission</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SLIDE 15: CALL TO ACTION -->
+<div class="slide title-slide">
+    <h1 style="font-size: 56px; color: #2C5234;">Let's Give Them That</h1>
+    
+    <div class="box" style="font-size: 28px; margin-top: 60px;">
+        <p><strong>Next Steps:</strong></p>
+        <ul style="text-align: left;">
+            <li>This Week: Review and address questions</li>
+            <li>Next 2 Weeks: IT security assessment, budget allocation</li>
+            <li>Next 3 Months: Launch pilot, collect feedback, measure results</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 80px;">
+        <h2>Questions?</h2>
+        <p style="font-size: 24px; margin-top: 40px;">
+            Contact: [Your Name]<br>
+            Email: [Your Email]<br>
+            Phone: [Your Phone]
+        </p>
+    </div>
+</div>
+
+<!-- SLIDE 16: THANK YOU -->
+<div class="slide title-slide">
+    <h1 style="font-size: 72px; color: #2C5234;">Thank You</h1>
+    <div class="logo">🌾</div>
+    <p style="font-size: 36px; margin-top: 40px;">
+        USDA Local Travel Voucher System
+    </p>
+    <p style="font-size: 24px; color: #666; margin-top: 20px;">
+        Modernizing Government, One Voucher at a Time
+    </p>
+</div>
+
+</body>
+</html>

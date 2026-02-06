@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Quick Reference Card</title>
+    <style>
+        @page { size: A4; margin: 0.5cm; }
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 800px; 
+            margin: 20px auto; 
+            padding: 20px;
+            font-size: 11pt;
+        }
+        .card { 
+            border: 3px solid #2C5234; 
+            padding: 15px; 
+            margin: 10px 0;
+            background: #f9f9f9;
+            page-break-inside: avoid;
+        }
+        h1 { 
+            color: #2C5234; 
+            font-size: 24pt; 
+            margin: 0 0 10px 0;
+            text-align: center;
+            border-bottom: 3px solid #4A8B2A;
+            padding-bottom: 10px;
+        }
+        h2 { 
+            color: #4A8B2A; 
+            font-size: 16pt; 
+            margin: 15px 0 10px 0;
+        }
+        .credentials {
+            background: #FFF9C4;
+            padding: 10px;
+            border-left: 5px solid #FDB813;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .checklist {
+            background: #E8F5E9;
+            padding: 10px;
+            border-left: 5px solid #4A8B2A;
+            margin: 10px 0;
+        }
+        .timing {
+            background: #E3F2FD;
+            padding: 10px;
+            border-left: 5px solid #1976D2;
+            margin: 10px 0;
+        }
+        .emergency {
+            background: #FFEBEE;
+            padding: 10px;
+            border-left: 5px solid #C41E3A;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        table td:first-child {
+            font-weight: bold;
+            background: #f0f0f0;
+            width: 120px;
+        }
+        ul { margin: 5px 0; padding-left: 20px; }
+        li { margin: 5px 0; }
+        .big { font-size: 14pt; font-weight: bold; }
+        .url { font-family: 'Courier New', monospace; color: #1976D2; }
+    </style>
+</head>
+<body>
+
+<h1>🎬 DEMO QUICK REFERENCE CARD</h1>
+<p style="text-align: center; font-size: 10pt; color: #666;">USDA Travel Voucher System - Presentation Day</p>
+
+<div class="card credentials">
+    <h2>🔐 LOGIN CREDENTIALS</h2>
+    <table>
+        <tr><td>Inspector</td><td>inspector@usda.gov / Test123!</td></tr>
+        <tr><td>Supervisor</td><td>supervisor@usda.gov / Test123!</td></tr>
+        <tr><td>Fleet Manager</td><td>fleetmgr@usda.gov / Test123!</td></tr>
+        <tr><td>Admin</td><td>admin@usda.gov / Admin123!</td></tr>
+    </table>
+</div>
+
+<div class="card checklist">
+    <h2>✅ PRE-DEMO CHECKLIST (15 min before)</h2>
+    <ul>
+        <li>☐ Backend running: <span class="url">http://localhost:5000</span></li>
+        <li>☐ Frontend running: <span class="url">http://localhost:5173</span></li>
+        <li>☐ 4 browser tabs open (Login, Inspector, Supervisor, Fleet)</li>
+        <li>☐ Login to each tab (don't close!)</li>
+        <li>☐ Test Google Maps (add sample trip)</li>
+        <li>☐ Close unnecessary apps (Slack, Teams)</li>
+        <li>☐ Screenshots ready as backup</li>
+        <li>☐ Water nearby</li>
+    </ul>
+</div>
+
+<div class="card timing">
+    <h2>⏱️ DEMO TIMING (Total: 5-7 minutes)</h2>
+    <table>
+        <tr><td>Introduction</td><td>30 seconds</td></tr>
+        <tr><td>Login Page</td><td>15 seconds</td></tr>
+        <tr><td>Inspector View</td><td>2 minutes</td></tr>
+        <tr><td>Supervisor View</td><td>2 minutes</td></tr>
+        <tr><td>Fleet Manager</td><td>1-2 minutes</td></tr>
+        <tr><td>Closing</td><td>30 seconds</td></tr>
+    </table>
+</div>
+
+<div class="card">
+    <h2>📱 INSPECTOR DEMO SCRIPT</h2>
+    <p class="big">What to Show:</p>
+    <ol>
+        <li><strong>Dashboard</strong> - Clean, simple interface</li>
+        <li><strong>Add Trip</strong> - Only 4 fields:
+            <ul>
+                <li>Date: Today</li>
+                <li>From: USDA Office, Trenton, NJ</li>
+                <li>To: Superior Poultry, Vineland, NJ</li>
+                <li>Purpose: Routine poultry inspection</li>
+            </ul>
+        </li>
+        <li><strong>Google Maps</strong> - Auto-calculates mileage (~28.4 mi)</li>
+        <li><strong>Save</strong> - "Done in 30 seconds"</li>
+        <li><strong>Generate Voucher</strong> - Auto-filled, click Submit</li>
+    </ol>
+    <p class="big">Key Phrase:</p>
+    <p>"2 minutes total. Compare that to 2 hours with paper forms."</p>
+</div>
+
+<div class="card">
+    <h2>👩‍💼 SUPERVISOR DEMO SCRIPT</h2>
+    <p class="big">What to Show:</p>
+    <ol>
+        <li><strong>Dashboard</strong> - "8 vouchers awaiting review"</li>
+        <li><strong>Click voucher</strong> - View all 15 trips</li>
+        <li><strong>Review trips</strong> - Dates, locations, mileage</li>
+        <li><strong>Approve</strong> - One click, auto-forwards</li>
+    </ol>
+    <p class="big">Key Phrase:</p>
+    <p>"2 minutes to review and approve. No printing. No scanning. No PDF merging."</p>
+</div>
+
+<div class="card">
+    <h2>🚗 FLEET MANAGER DEMO SCRIPT</h2>
+    <p class="big">What to Show:</p>
+    <ol>
+        <li><strong>Dashboard</strong> - "45 vouchers, 12,450 miles, $8,715"</li>
+        <li><strong>Filter</strong> - By circuit, state, date</li>
+        <li><strong>Inspector profile</strong> - Click name, see details</li>
+        <li><strong>Export to Excel</strong> - One-click download</li>
+        <li><strong>Approve</strong> - Final approval</li>
+    </ol>
+    <p class="big">Key Phrase:</p>
+    <p>"Data visibility that paper forms could never provide."</p>
+</div>
+
+<div class="card emergency">
+    <h2>🆘 IF DEMO BREAKS</h2>
+    <p class="big">Stay Calm!</p>
+    <ul>
+        <li><strong>Problem: Server not responding</strong>
+            <br>→ Use backup screenshots
+            <br>→ Say: "Let me show you screenshots of the key features"
+        </li>
+        <li><strong>Problem: Google Maps not working</strong>
+            <br>→ Type mileage manually (28.4)
+            <br>→ Say: "In production, this calculates automatically"
+        </li>
+        <li><strong>Problem: Login not working</strong>
+            <br>→ Try incognito window (Ctrl+Shift+N)
+            <br>→ Or use screenshots
+        </li>
+    </ul>
+    <p class="big">Remember:</p>
+    <p>The demo is the cherry on top—not the whole sundae. You have a strong presentation even without the demo!</p>
+</div>
+
+<div class="card">
+    <h2>🎤 KEY PHRASES TO USE</h2>
+    <ul>
+        <li>"Watch how fast this is..."</li>
+        <li>"Notice the system automatically..."</li>
+        <li>"Compare this to printing, scanning, and merging PDFs..."</li>
+        <li>"That took 30 seconds. With paper, this takes 20 minutes."</li>
+        <li>"Everyone can see exactly where the voucher is..."</li>
+        <li>"It's as simple as three clicks."</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2>🌟 DEMO GOALS</h2>
+    <p>By the end, they should understand:</p>
+    <ul>
+        <li>✅ <strong>It's simple</strong> - Anyone can use it</li>
+        <li>✅ <strong>It's fast</strong> - 95% time savings</li>
+        <li>✅ <strong>It's transparent</strong> - Everyone knows status</li>
+        <li>✅ <strong>It's automatic</strong> - Calculations, routing, notifications</li>
+        <li>✅ <strong>It works</strong> - Live, functional system</li>
+    </ul>
+</div>
+
+<div style="text-align: center; margin-top: 30px; font-size: 18pt; font-weight: bold; color: #2C5234;">
+    YOU'VE GOT THIS! 🍀
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "name": "usda-travel-backend",
+  "version": "1.0.0",
+  "description": "USDA Travel Voucher System - Backend API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
+  },
+  "keywords": ["usda", "travel", "voucher", "api"],
+  "author": "USDA FSIS",
+  "license": "ISC",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "better-sqlite3": "^9.2.2",
+    "dotenv": "^17.2.3",
+    "csv-parser": "^3.2.0",
+    "exceljs": "^4.4.0",
+    "express-rate-limit": "^8.2.1",
+    "mime-types": "^3.0.2",
+    "multer": "^2.0.2",
+    "papaparse": "^5.5.3",
+    "pdfkit": "^0.17.2",
+    "validator": "^13.15.26"
+  }
+}

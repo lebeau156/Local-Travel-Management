@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" width="200" height="140">
+  <!-- USDA Text in Navy Blue -->
+  <text x="10" y="55" font-family="'Times New Roman', Georgia, serif" font-size="52" font-weight="bold" fill="#003366" letter-spacing="-1">USDA</text>
+  
+  <!-- Green stripes and solid block below -->
+  <g fill="#1B5E20">
+    <!-- First thin stripe (top) -->
+    <ellipse cx="100" cy="72" rx="90" ry="2" />
+    
+    <!-- Second thin stripe with gap -->
+    <path d="M 10 78 Q 100 74 190 78 L 190 80 Q 100 76 10 80 Z" />
+    
+    <!-- Third stripe starting the solid block -->
+    <path d="M 10 84 Q 100 80 190 84 L 190 87 Q 100 83 10 87 Z" />
+    
+    <!-- Solid green block at bottom -->
+    <rect x="10" y="90" width="180" height="40" />
+  </g>
+</svg>
