@@ -88,29 +88,35 @@ exports.login = (req, res) => {
 // Get current user
 exports.getMe = (req, res) => {
   try {
-    const user = db.prepare(`
-      SELECT 
-        u.id, u.email, u.role, u.assigned_supervisor_id, u.fls_supervisor_id,
-        p.user_id, p.first_name, p.last_name, p.middle_initial, p.ssn_encrypted,
-        p.phone, p.home_address, p.duty_station, p.employee_id, p.travel_auth_no,
-        p.agency, p.office, p.vehicle_make, p.vehicle_model, p.vehicle_year,
-        p.vehicle_license, p.mileage_rate, p.per_diem_rate, p.account_number,
-        p.signature_data, p.signature_type, p.accounting_code, p.cost_center,
-        p.fund_code, p.organization_code, p.supervisor_id, p.state, p.circuit,
-        p.position, p.hire_date
-      FROM users u
-      LEFT JOIN profiles p ON u.id = p.user_id
-      WHERE u.id = ?
-    `).get(req.user.id);
+    // First get the basic user info
+    const user = db.prepare('SELECT id, email, role, assigned_supervisor_id, fls_supervisor_id FROM users WHERE id = ?').get(req.user.id);
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    delete user.password;
-    res.json(user);
+    // Try to get profile data (may not exist)
+    let profile = null;
+    try {
+      profile = db.prepare('SELECT * FROM profiles WHERE user_id = ?').get(req.user.id);
+    } catch (err) {
+      console.log('Profile not found for user', req.user.id);
+    }
+
+    // Merge user and profile data
+    const userData = {
+      id: user.id,
+      email: user.email,
+      role: user.role,
+      assigned_supervisor_id: user.assigned_supervisor_id,
+      fls_supervisor_id: user.fls_supervisor_id,
+      ...(profile || {})
+    };
+
+    res.json(userData);
   } catch (error) {
     console.error('Get user error:', error);
-    res.status(500).json({ error: 'Failed to get user' });
+    console.error('Error stack:', error.stack);
+    res.status(500).json({ error: 'Failed to get user', details: error.message });
   }
 };
