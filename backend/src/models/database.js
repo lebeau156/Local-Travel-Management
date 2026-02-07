@@ -36,6 +36,11 @@ function initDatabase() {
   try {
     db.exec(`ALTER TABLE users ADD COLUMN assigned_supervisor_id INTEGER REFERENCES users(id)`);
   } catch (e) { /* Column already exists */ }
+  
+  // Add fls_supervisor_id if it doesn't exist (migration)
+  try {
+    db.exec(`ALTER TABLE users ADD COLUMN fls_supervisor_id INTEGER REFERENCES users(id)`);
+  } catch (e) { /* Column already exists */ }
 
   // Profiles table
   db.exec(`
