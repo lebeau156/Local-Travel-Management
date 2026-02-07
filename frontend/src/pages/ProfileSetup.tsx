@@ -308,13 +308,21 @@ const ProfileSetup: React.FC = () => {
           <div>
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Work Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <GooglePlacesAutocomplete
-                label="Duty Station"
-                value={formData.duty_station}
-                onChange={(value) => setFormData(prev => ({ ...prev, duty_station: value }))}
-                placeholder="City, State"
-                required
-              />
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  Duty Station (Plant/Establishment Name) <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="duty_station"
+                  value={formData.duty_station}
+                  onChange={handleChange}
+                  placeholder="Enter plant or establishment name"
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <p className="text-xs text-gray-500 mt-1">Your assigned plant or establishment</p>
+              </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   Plant Number
