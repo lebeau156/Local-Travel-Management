@@ -56,8 +56,9 @@ process.on('unhandledRejection', (reason, promise) => {
 const allowedOrigins = process.env.NODE_ENV === 'production' 
   ? [
       process.env.FRONTEND_URL,
-      'https://*.railway.app',
-      'https://*.up.railway.app'
+      'https://gentle-flexibility-production-da0b.up.railway.app',
+      'railway.app',
+      'up.railway.app'
     ].filter(Boolean)
   : [
       'http://localhost:5173', 
@@ -74,11 +75,8 @@ app.use(cors({
     
     // Check if origin matches allowed patterns
     const isAllowed = allowedOrigins.some(allowedOrigin => {
-      if (allowedOrigin.includes('*')) {
-        const pattern = allowedOrigin.replace('*.', '');
-        return origin.endsWith(pattern);
-      }
-      return origin === allowedOrigin;
+      // Check if origin ends with allowed domain
+      return origin.includes(allowedOrigin) || origin === allowedOrigin;
     });
     
     if (isAllowed) {
