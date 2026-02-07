@@ -34,7 +34,7 @@ exports.updateProfile = (req, res) => {
       db.prepare('INSERT INTO profiles (user_id) VALUES (?)').run(req.user.id);
     }
 
-    // Update profiles table
+    // Update profiles table (without fls_supervisor_id)
     db.prepare(`
       UPDATE profiles SET
         first_name = COALESCE(?, first_name),
@@ -56,18 +56,17 @@ exports.updateProfile = (req, res) => {
         per_diem_rate = COALESCE(?, per_diem_rate),
         account_number = COALESCE(?, account_number),
         signature_data = COALESCE(?, signature_data),
-        signature_type = COALESCE(?, signature_type),
-        fls_supervisor_id = COALESCE(?, fls_supervisor_id)
+        signature_type = COALESCE(?, signature_type)
       WHERE user_id = ?
     `).run(
       first_name, last_name, middle_initial, phone, home_address,
       duty_station, employee_id, travel_auth_no, agency, office, position,
       vehicle_make, vehicle_model, vehicle_year, vehicle_license,
       mileage_rate, per_diem_rate, account_number,
-      signature_data, signature_type, fls_supervisor_id, req.user.id
+      signature_data, signature_type, req.user.id
     );
 
-    // Also update users table if FLS supervisor is provided
+    // Update fls_supervisor_id in users table
     if (fls_supervisor_id !== undefined) {
       db.prepare(`
         UPDATE users SET fls_supervisor_id = ? WHERE id = ?
@@ -78,6 +77,7 @@ exports.updateProfile = (req, res) => {
     res.json({ message: 'Profile updated', profile: updatedProfile });
   } catch (error) {
     console.error('Update profile error:', error);
-    res.status(500).json({ error: 'Failed to update profile' });
+    console.error('Error details:', error.message);
+    res.status(500).json({ error: 'Failed to update profile', details: error.message });
   }
 };
